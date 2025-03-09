@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animo</title>
+    <link rel="stylesheet" href="styles.css">
+	<link rel="icon" href="1.png">
+</head>
+<body>
+    <header2>
+        <div class="logo">Animo Studio</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="contact.html">Contact</a></li>
+				
+            </ul>
+        </nav>
+    </header2>
+	<canvas class="background"></canvas>
+
+<section id="hero" style="background-size: cover; background-position: center;">
+    <h1>Welcome to Our Motion Studio</h1>
+    <p>Crafting Visions with Every Frame</p>
+    <a href="portfolio.html"><button id="exploreBtn">PORTFOLIO</button></a>
+</section>
+
+
+
+
+<section id="services">
+    <div class="service-box box1">
+        <h3>Content Animation</h3>
+        <p>We create intros, outros, and more animations for YouTube and other platforms. Contact us anytime.</p>
+    </div>
+    <div class="service-box box2">
+        <h3>Video Ads</h3>
+        <p>We craft compelling Video Ads to boost your brand and captivate your audience.</p>
+    </div>
+    <div class="service-box box3">
+        <h3>Consulting</h3>
+        <p>Feel free to consult us for any types of animation works.</p>
+    </div>
+</section>
+
+
+
+    <footer>
+	
+        <p>&copy; 2025 Animo Studio. All rights reserved.</p>
+    
+	</footer>
+
+    <script src="script.js"></script>
+	<script>
+		// Animated Background with Lines
+        const canvas = document.querySelector(".background");
+        const ctx = canvas.getContext("2d");
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        let points = Array(80).fill().map(() => ({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            vx: (Math.random() - 0.5) * 1.5,
+            vy: (Math.random() - 0.5) * 1.5
+        }));
+
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            points.forEach((p, i) => {
+                p.x += p.vx;
+                p.y += p.vy;
+                if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+                if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, 3, 0, Math.PI * 2);
+                ctx.fillStyle = "white";
+                ctx.fill();
+                points.forEach((p2, j) => {
+                    if (i !== j) {
+                        let dist = Math.hypot(p.x - p2.x, p.y - p2.y);
+                        if (dist < 120) {
+                            ctx.beginPath();
+                            ctx.moveTo(p.x, p.y);
+                            ctx.lineTo(p2.x, p2.y);
+                            ctx.strokeStyle = `rgba(255, 255, 255, ${1 - dist / 120})`;
+                            ctx.stroke();
+                        }
+                    }
+                });
+            });
+            requestAnimationFrame(draw);
+        }
+
+        draw();
+	</script>
+</body>
+</html>
