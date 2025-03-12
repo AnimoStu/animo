@@ -53,6 +53,7 @@
         }
 
         .video-card {
+			position: relative;
 			background-color: white;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -73,6 +74,20 @@
             height: auto;
             cursor: pointer;
         }
+		.video-title {
+			position: absolute;
+			bottom: 0; /* একদম নিচে রাখবে */
+			left: 0;
+			width: 20%;
+			background: rgba(0, 0, 0, 0.2); /* কালো ব্যাকগ্রাউন্ড */
+			color: #343536;
+			font-size: 10px;
+			padding: 3px;
+			text-align: left;
+			font-weight: Bold;
+			border-radius: 2px;
+		
+		}
 
         .video-info {
             text-align: center;
@@ -132,6 +147,12 @@
             font-size: 65px;
             cursor: pointer;
         }
+		
+		
+		
+		
+		
+		
     </style>
 </head>
 <body>
@@ -149,7 +170,21 @@
         </nav>
     </header>
 	
-	<div class="logo2">
+	<div class="menu-container">
+        <menu-button class="menu-button" onclick="toggleMenu()">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </menu-button>
+        <div class="dropdown-content">
+			<a href="#Animations">Animations</a>
+            <a href="#Video-Ads">Video Ads</a>
+            <a href="#vfx-showreel">VFX Showreel</a>
+        </div>
+    </div>
+	
+	
+	<div id="Animations" class="logo2">
         <h1>Animations</h1>
     </div>
 	
@@ -162,11 +197,18 @@
 			<div class="video-card" onclick="openModal('1kn9ox01uDQft-uY6EvrIifOrLws2SLUG')">
 			<img src="https://animostu.wordpress.com/wp-content/uploads/2025/02/a13.png?w=1024" alt="Video Thumbnail">
 			</div>
+			
 	    		<div class="video-card" onclick="openModal('1zw4EvwuK8OxhH5BhcZknAGUgRgKLXOdv')">
 			<img src="https://animostu.wordpress.com/wp-content/uploads/2025/02/clipboarder.2025.03.09-003.png?w=1024" alt="Video Thumbnail">
 			</div>
+			
 			<div class="video-card" onclick="openModal('1fc_MV96B45IRo3MNmtQL9ZNgb-Lyotr4')">
 			<img src="https://animostu.wordpress.com/wp-content/uploads/2025/03/clipboarder.2025.03.11-006.png?w=1024" alt="Video Thumbnail">
+			</div>
+			
+			<div class="video-card" onclick="openModal('1doTf103I9bcqL36uB3EKRrfw8PkXcyUi')">
+			<img src="https://animostu.wordpress.com/wp-content/uploads/2025/02/clipboarder.2025.03.12.png?w=1024" alt="Video Thumbnail">
+			<div class="video-title">Client Work</div>
 			</div>
 
 
@@ -199,12 +241,12 @@
 
     </div>
 	
-	<div class="logo2">
+	<div id="Video-Ads" class="logo2">
         <h1>Video Ads</h1>
     </div>	
 	
 	
-	<div class="logo2">
+	<div id="vfx-showreel" class="logo2">
         <h1>VFX Showreel</h1>
     </div>
 	
@@ -316,6 +358,13 @@ init();
     canvas.height = window.innerHeight;
 });
 
+
+function toggleMenu() {
+    const menuButton = document.querySelector(".menu-button");
+    const menuContainer = document.querySelector(".menu-container");
+    menuButton.classList.toggle("active");
+    menuContainer.classList.toggle("active");
+}
     
 	</script>
 <footer>
