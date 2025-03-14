@@ -378,6 +378,7 @@ document.addEventListener("click", function (event) {
     const menuContainer = document.querySelector(".menu-container");
     const menuButton = document.querySelector(".menu-button");
     const dropdownContent = document.querySelector(".dropdown-content");
+    const menuLinks = document.querySelectorAll(".dropdown-content a");
     
     // যদি মেনুর বাইরে ক্লিক করা হয়, তাহলে মেনু বন্ধ হবে
     if (!menuContainer.contains(event.target)) {
@@ -385,9 +386,11 @@ document.addEventListener("click", function (event) {
     }
 
     // যদি মেনুর কোনো লিঙ্কে ক্লিক করা হয়, তাহলে মেনু বন্ধ হবে
-    if (dropdownContent.contains(event.target)) {
-        menuContainer.classList.remove("active");
-    }
+    menuLinks.forEach(link => {
+        link.addEventListener("click", function() {
+            menuContainer.classList.remove("active");
+        });
+    });
 });
 
     
