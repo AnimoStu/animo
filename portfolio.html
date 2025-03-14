@@ -365,11 +365,26 @@ init();
 
 
 function toggleMenu() {
-    const menuButton = document.querySelector(".menu-button");
     const menuContainer = document.querySelector(".menu-container");
-    menuButton.classList.toggle("active");
     menuContainer.classList.toggle("active");
 }
+
+document.addEventListener("click", function (event) {
+    const menuContainer = document.querySelector(".menu-container");
+    const menuButton = document.querySelector(".menu-button");
+    const dropdownContent = document.querySelector(".dropdown-content");
+    
+    // যদি মেনুর বাইরে ক্লিক করা হয়, তাহলে মেনু বন্ধ হবে
+    if (!menuContainer.contains(event.target)) {
+        menuContainer.classList.remove("active");
+    }
+
+    // যদি মেনুর কোনো লিঙ্কে ক্লিক করা হয়, তাহলে মেনু বন্ধ হবে
+    if (dropdownContent.contains(event.target)) {
+        menuContainer.classList.remove("active");
+    }
+});
+
     
 	</script>
 <footer>
