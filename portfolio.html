@@ -123,7 +123,10 @@
         }
 
         .modal-content {
-            position: relative;
+            position: absolute; /* Change to absolute for better centering */
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%); /* This centers the modal-content */
             background-color: rgba(79, 86, 89, 1);
             padding: 1px;
             width: 90%;
@@ -194,16 +197,19 @@
 	
     <div class="container">
         
-			<div class="video-card" onclick="openModal('1Afvx7v1LggJsUhq92F-l_utKr-jh_-8z')">
-			<img src="https://animostu.wordpress.com/wp-content/uploads/2025/02/clipboarder.2025.03.14-005.png?w=1024" alt="Video Thumbnail">
-			</div>
+			
 			
 			
 			<div class="video-card" onclick="openModal('1kn9ox01uDQft-uY6EvrIifOrLws2SLUG')">
 			<img src="https://animostu.wordpress.com/wp-content/uploads/2025/02/a13.png?w=1024" alt="Video Thumbnail">
 			</div>
 			
-	    		<div class="video-card" onclick="openModal('1zw4EvwuK8OxhH5BhcZknAGUgRgKLXOdv')">
+			
+			<div class="video-card" onclick="openModal('1Afvx7v1LggJsUhq92F-l_utKr-jh_-8z')">
+			<img src="https://animostu.wordpress.com/wp-content/uploads/2025/02/clipboarder.2025.03.14-005.png?w=1024" alt="Video Thumbnail">
+			</div>
+			
+	    	<div class="video-card" onclick="openModal('1zw4EvwuK8OxhH5BhcZknAGUgRgKLXOdv')">
 			<img src="https://animostu.wordpress.com/wp-content/uploads/2025/02/clipboarder.2025.03.09-003.png?w=1024" alt="Video Thumbnail">
 			</div>
 			
@@ -371,8 +377,12 @@ init();
 
 
 
-	    
+
+
+
 function toggleMenu(event) {
+    if (window.innerWidth > 768) return; // শুধুমাত্র মোবাইল ভিউতে কাজ করবে
+    
     event.stopPropagation(); // ইভেন্ট বুবলিং বন্ধ করার জন্য
     const menuContainer = document.querySelector(".menu-container");
     menuContainer.classList.toggle("active");
@@ -383,19 +393,21 @@ document.addEventListener("DOMContentLoaded", function () {
     const menuContainer = document.querySelector(".menu-container");
     const menuLinks = document.querySelectorAll(".dropdown-content a");
 
-    // মেনু বাটনে ক্লিক করলে টগল হবে
+    // মেনু বাটনে ক্লিক করলে টগল হবে (শুধু মোবাইলে)
     menuButton.addEventListener("click", toggleMenu);
 
-    // মেনুর যেকোনো অপশনে ক্লিক করলে মেনু বন্ধ হবে
+    // মেনুর যেকোনো অপশনে ক্লিক করলে মেনু বন্ধ হবে (শুধু মোবাইলে)
     menuLinks.forEach(link => {
         link.addEventListener("click", function () {
-            menuContainer.classList.remove("active");
+            if (window.innerWidth <= 768) {
+                menuContainer.classList.remove("active");
+            }
         });
     });
 
-    // স্ক্রিনের অন্য কোথাও ক্লিক করলে মেনু বন্ধ হবে
+    // স্ক্রিনের অন্য কোথাও ক্লিক করলে মেনু বন্ধ হবে (শুধু মোবাইলে)
     document.addEventListener("click", function (event) {
-        if (!menuContainer.contains(event.target) && !menuButton.contains(event.target)) {
+        if (window.innerWidth <= 768 && !menuContainer.contains(event.target) && !menuButton.contains(event.target)) {
             menuContainer.classList.remove("active");
         }
     });
