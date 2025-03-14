@@ -391,7 +391,13 @@ document.addEventListener("click", function (event) {
             menuContainer.classList.remove("active");
         });
     });
+
+    // যদি মেনু বাটনে ক্লিক করা হয় এবং মেনু ওপেন থাকে, তাহলে মেনু ক্লোজ করবে
+    if (menuButton.contains(event.target)) {
+        menuContainer.classList.toggle("active");
+    }
 });
+
 
     
 	</script>
