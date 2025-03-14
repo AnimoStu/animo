@@ -369,33 +369,36 @@ init();
 });
 
 
-function toggleMenu() {
+
+
+	    
+function toggleMenu(event) {
+    event.stopPropagation(); // ইভেন্ট বুবলিং বন্ধ করার জন্য
     const menuContainer = document.querySelector(".menu-container");
     menuContainer.classList.toggle("active");
 }
 
-document.addEventListener("click", function (event) {
-    const menuContainer = document.querySelector(".menu-container");
+document.addEventListener("DOMContentLoaded", function () {
     const menuButton = document.querySelector(".menu-button");
-    const dropdownContent = document.querySelector(".dropdown-content");
+    const menuContainer = document.querySelector(".menu-container");
     const menuLinks = document.querySelectorAll(".dropdown-content a");
-    
-    // যদি মেনুর বাইরে ক্লিক করা হয়, তাহলে মেনু বন্ধ হবে
-    if (!menuContainer.contains(event.target)) {
-        menuContainer.classList.remove("active");
-    }
 
-    // যদি মেনুর কোনো লিঙ্কে ক্লিক করা হয়, তাহলে মেনু বন্ধ হবে
+    // মেনু বাটনে ক্লিক করলে টগল হবে
+    menuButton.addEventListener("click", toggleMenu);
+
+    // মেনুর যেকোনো অপশনে ক্লিক করলে মেনু বন্ধ হবে
     menuLinks.forEach(link => {
-        link.addEventListener("click", function() {
+        link.addEventListener("click", function () {
             menuContainer.classList.remove("active");
         });
     });
 
-    // যদি মেনু বাটনে ক্লিক করা হয় এবং মেনু ওপেন থাকে, তাহলে মেনু ক্লোজ করবে
-    if (menuButton.contains(event.target)) {
-        menuContainer.classList.toggle("active");
-    }
+    // স্ক্রিনের অন্য কোথাও ক্লিক করলে মেনু বন্ধ হবে
+    document.addEventListener("click", function (event) {
+        if (!menuContainer.contains(event.target) && !menuButton.contains(event.target)) {
+            menuContainer.classList.remove("active");
+        }
+    });
 });
 
 
