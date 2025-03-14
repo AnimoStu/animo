@@ -569,7 +569,7 @@ footer {
         display: none; /* Initially hidden */
         position: absolute;
         top: 50px; /* Position it below the button */
-        width: 100%; /* Full width */
+        width: 50%; /* Full width */
     }
 
     /* Toggle dropdown visibility when the button is active (clicked) */
