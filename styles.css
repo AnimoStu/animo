@@ -550,9 +550,9 @@ footer {
 @media (max-width: 768px) {
     .menu-container {
         position: relative;
-        display: block;
+        display: inline-block;
         margin-top: 20px;
-        right: 0; /* Remove right margin */
+        right: 36%; /* Remove right margin */
     }
 
     .menu-button {
