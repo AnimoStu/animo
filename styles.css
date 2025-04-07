@@ -7,43 +7,54 @@ body {
     overflow-x: hidden;
 }
 
-#popupBox {
-      position: fixed;
-      bottom: 30px;
-      left: 200px;
-	  background-color: rgba( 255, 255 , 255 , .8); 
-      background-image: url('https://animostu.wordpress.com/wp-content/uploads/2025/02/palestine-26809_1280.png?w=1024');
-	  background-size: 30% 30%;
-	  background-repeat: no-repeat;
-	  background-position: 220px 30px;
-	  border: 1px solid #ccc;
-      padding: 160px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.2);
-      z-index: 9999;
-      max-width: 300px;
-      font-family: sans-serif;
-	  color: #000000
-	  
-	  
+ #popupBox {
+    position: fixed;
+    bottom: 130px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(255, 255, 255, 0.9);
+    background-image: url('https://animostu.wordpress.com/wp-content/uploads/2025/02/palestine-26809_1280.png?w=1024');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center top;
+    border: 1px solid #ccc;
+    padding: 220px 20px 20px 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    z-index: 9999;
+    max-width: 90%;
+    width: 300px;
+    font-family: sans-serif;
+    color: #000000;
+    text-align: center;
+  }
+
+  #popupBox button {
+    position: absolute;
+    top: 45%;
+    right: 40%;
+    background: rgba(255, 0, 8,.3);
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: #000000;
+  }
+
+  #popupBox a {
+    color: #007bff;
+    text-decoration: none;
+  }
+
+  /* Optional: responsive image positioning tweaks */
+  @media (max-width: 480px) {
+    #popupBox {
+      padding-top: 220px;
+      font-size: 16px;
     }
 
     #popupBox button {
-      position: absolute;
-      top: 350px;
-      right: 250px;
-      background: hsla(150% 10, 10, .5);
-      border: 1px 20px 1px 20px;
-      font-size: 40px;
-      cursor: pointer;
-	  color: #000000
+      font-size: 24px;
     }
-
-    #popupBox a {
-      color: #007bff;
-      text-decoration: none;
-	  
-	 
-    }
+  }
 
 
 .background {
