@@ -29,8 +29,8 @@ body {
 
     #popupBox button {
       position: absolute;
-      top: 5px;
-      right: 5px;
+      top: 350px;
+      right: 250px;
       background: hsla(150% 10, 10, .5);
       border: 1px 20px 1px 20px;
       font-size: 40px;
