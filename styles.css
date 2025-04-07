@@ -9,7 +9,7 @@ body {
 
  #popupBox {
     position: fixed;
-    bottom: 130px;
+    bottom: 100px;
     left: 50%;
     transform: translateX(-50%);
     background-color: rgba(255, 255, 255, 0.9);
@@ -17,7 +17,7 @@ body {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center top;
-    border: 1px solid #ccc;
+    border: 30px solid #ccc;
     padding: 220px 20px 20px 20px;
     box-shadow: 0 0 10px rgba(0,0,0,0.2);
     z-index: 9999;
