@@ -45,7 +45,10 @@
     </div>
 </section>
 
-
+<div id="popupBox">
+  <button onclick="closePopup()">×</button>
+  <h3>We stand in solidarity against the genocide and with our brothers and sisters in Palestine.    <strong><b><u>Stop Genocide. Free Palestine</u></b></strong><i>. To learn more, visit</i> <a href="https://www.aljazeera.com/tag/israel-palestine-conflict/" target="_blank">this page</a>.</h3>
+</div>
 
     <footer>
 	
@@ -126,6 +129,11 @@ window.addEventListener("resize", () => {
 
 // Start animation
 init();
+
+
+ function closePopup() {
+    document.getElementById("popupBox").style.display = "none";
+  }
 
 	</script>
 </body>
